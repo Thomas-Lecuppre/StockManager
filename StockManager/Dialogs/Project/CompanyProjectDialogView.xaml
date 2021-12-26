@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="StockManager.Dialogs.Project.CompanyProjectDialogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StockManager.Dialogs.Project"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             FontSize="22"
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0"
+                 Style="{StaticResource RoundedTextBox}"
+                 Text="{Binding ProjectId}"
+                 VerticalContentAlignment="Center"
+                 d:Text="0041"/>
+
+        <TextBox Grid.Row="2"
+                 Style="{StaticResource RoundedTextBox}"
+                 Text="{Binding ProjectId}"
+                 VerticalContentAlignment="Center"
+                 d:Text="Beuvrie sur alcool"/>
+
+        <ScrollViewer Grid.Row="4"
+                      Grid.Column="1"
+                      VerticalContentAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch">
+
+            <RichTextBox x:Name="BarecodeHistory" 
+                                 BorderBrush="Transparent"
+                                 Background="Transparent"
+                                 Foreground="{StaticResource BB_Foreground}">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="{Binding ProjectLocaltion}"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+
+        <Button x:Name="AddProject"
+                Grid.Row="6"
+                Grid.Column="0"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Style="{StaticResource GoldenButtonStyle}"
+                HorizontalAlignment="Center"
+                Command="{Binding okCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+
+            <materialDesign:PackIcon Kind="PlusBox"
+                                         Height="35" 
+                                         Width="35" 
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+        </Button>
+
+    </Grid>
+</UserControl>
